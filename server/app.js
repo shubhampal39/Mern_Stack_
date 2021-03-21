@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 const express = require('express');
-// const db= require('./config/connection')
+const dotenv=require('dotenv');
 const app=express();
-
-const db='mongodb+srv://shubhampal:shubhampal@cluster0.ta48e.mongodb.net/mearnstack?retryWrites=true&w=majority';
-
+dotenv.config({path:'./config.env'});
+// const db='mongodb+srv://shubhampal:shubhampal@cluster0.ta48e.mongodb.net/mearnstack?retryWrites=true&w=majority';
+const db=process.env.DATABASE;
 mongoose.connect(db,{
    useNewUrlParser: true,
    useCreateIndex:true,
