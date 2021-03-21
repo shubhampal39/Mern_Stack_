@@ -2,18 +2,11 @@ const mongoose = require('mongoose');
 const express = require('express');
 const dotenv=require('dotenv');
 const app=express();
-dotenv.config({path:'./config.env'});
-// const db='mongodb+srv://shubhampal:shubhampal@cluster0.ta48e.mongodb.net/mearnstack?retryWrites=true&w=majority';
-const db=process.env.DATABASE;
-mongoose.connect(db,{
-   useNewUrlParser: true,
-   useCreateIndex:true,
-   useUnifiedTopology:true,
-   useFindAndModify:false
-}).then(()=>{
-   console.log(`connected to mongodb`);
 
-}).catch((err)=> console.log(err));
+dotenv.config({path:'./config.env'});
+require('./db/conn')
+
+PORT=process.env.PORT;
 
 
 //middleware
@@ -41,9 +34,8 @@ app.get('/about',middleware,(req,res)=>{
     res.send("Hello about");
  })
 
-port=4000;
 
-app.listen(port,()=>{
-    console.log(`servern is running on ${port}`)
+app.listen(PORT,()=>{
+    console.log(`servern is running on ${PORT}`);
 });
 
