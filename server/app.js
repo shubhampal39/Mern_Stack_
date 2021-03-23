@@ -26,6 +26,7 @@ app.get('/about',middleware,(req,res)=>{
     res.send("Hello about");
  })
  app.get('/contact',(req,res)=>{
+    res.cookie("jwtoken",'shubham');
     res.send("Hello contact");
  })
 
