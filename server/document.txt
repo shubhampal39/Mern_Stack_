@@ -1,3 +1,8 @@
+mongoose credentials::::;
+user:shubhampal
+passwords:shubhampal
+const db='mongodb+srv://shubhampal:shubhampal@cluster0.ta48e.mongodb.net/mearnstack?retryWrites=true&w=majority';
+
 
 npm init
 install express
